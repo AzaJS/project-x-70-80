@@ -13,6 +13,7 @@ const MainRoutes = () => {
     {
       link: "/auth",
       element: <AuthPage />,
+      id: 2,
     },
   ];
   return (

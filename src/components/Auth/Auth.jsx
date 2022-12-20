@@ -12,6 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useAuth } from "../../contexts/authContext";
 
 function Copyright(props) {
   return (
@@ -34,6 +35,24 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Auth() {
+  const {
+    email,
+    password,
+    user,
+
+    emailError,
+    passwordError,
+    hasAccount,
+
+    setEmail,
+    setPassword,
+    setHasAccount,
+
+    handleLogin,
+    handleLogout,
+    handleSignUp,
+  } = useAuth();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -76,6 +95,11 @@ export default function Auth() {
               name="email"
               autoComplete="email"
               autoFocus
+              helperText={emailError}
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <TextField
               margin="normal"
@@ -86,6 +110,11 @@ export default function Auth() {
               type="password"
               id="password"
               autoComplete="current-password"
+              helperText={passwordError}
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -96,8 +125,9 @@ export default function Auth() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={handleSignUp}
             >
-              Sign In
+              Sign UP
             </Button>
             <Grid container>
               <Grid item xs>
