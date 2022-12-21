@@ -16,6 +16,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { useAuth } from "../../contexts/authContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -64,6 +65,7 @@ const pages = [
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const { user, handleLogout } = useAuth();
   console.log(user);
 
@@ -107,7 +109,14 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleMenuClose();
+          navigate("/auth");
+        }}
+      >
+        Profile
+      </MenuItem>
       <MenuItem
         onClick={() => {
           handleLogout();
@@ -201,7 +210,13 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <Box>{/* {pages.map((item)=>)} */}</Box>
+          <Box sx={{ display: "flex", gap: "6px" }}>
+            {pages.map((item) => (
+              <Link to={item.link}>
+                <Typography sx={{ color: "white" }}>{item.name}</Typography>
+              </Link>
+            ))}
+          </Box>
 
           <Box sx={{ flexGrow: 1 }} />
 
