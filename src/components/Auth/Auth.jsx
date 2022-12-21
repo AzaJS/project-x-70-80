@@ -78,7 +78,7 @@ export default function Auth() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            {hasAccount ? <>Sign In</> : <>Sign Up</>}
           </Typography>
           <Box
             component="form"
@@ -120,15 +120,28 @@ export default function Auth() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={handleSignUp}
-            >
-              Sign UP
-            </Button>
+            {hasAccount ? (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleLogin}
+              >
+                Sign In
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleSignUp}
+              >
+                Sign UP
+              </Button>
+            )}
+
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -136,9 +149,23 @@ export default function Auth() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                {hasAccount ? (
+                  <Link
+                    href="#"
+                    variant="body2"
+                    onClick={() => setHasAccount(!hasAccount)}
+                  >
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                ) : (
+                  <Link
+                    href="#"
+                    variant="body2"
+                    onClick={() => setHasAccount(!hasAccount)}
+                  >
+                    {"Have an account? Sign In"}
+                  </Link>
+                )}
               </Grid>
             </Grid>
           </Box>
