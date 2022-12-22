@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import AboutUs from "../components/AboutUs/AboutUs";
 import { useAuth } from "../contexts/authContext";
 import { ADMIN } from "../helpers/consts";
 import AdminPage from "../pages/AdminPage";
@@ -30,6 +31,11 @@ const MainRoutes = () => {
       link: "/products",
       element: <ProductsPage />,
       id: 4,
+    },
+    {
+      link: "/About",
+      element: <AboutUs />,
+      id: 5,
     },
   ];
 

@@ -17,6 +17,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { useAuth } from "../../contexts/authContext";
 import { Link, useNavigate } from "react-router-dom";
+import { ADMIN } from "../../helpers/consts";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -67,7 +68,6 @@ const pages = [
 export default function Navbar() {
   const navigate = useNavigate();
   const { user, handleLogout } = useAuth();
-  console.log(user);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -219,7 +219,7 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
-
+          {user.email == ADMIN ? <Link to="/Admin" style={{color: "white",margin: "20px",textDecoration: "underline"}}>Admin</Link> : null}
           {user ? <Box>{user.email}</Box> : <Box>Не авторизован</Box>}
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
