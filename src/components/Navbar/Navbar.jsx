@@ -17,6 +17,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { useAuth } from "../../contexts/authContext";
 import { Link, useNavigate } from "react-router-dom";
+import { ADMIN } from "../../helpers/consts";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -210,6 +211,8 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          {user.email == ADMIN ? 
+            <Link style={{color: "white"}} to="/admin" >Admin</Link> : null}
           <Box sx={{ display: "flex", gap: "6px" }}>
             {pages.map((item) => (
               <Link to={item.link}>

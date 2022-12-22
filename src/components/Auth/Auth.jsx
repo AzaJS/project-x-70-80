@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useAuth } from "../../contexts/authContext";
+import { Navigate } from "react-router-dom";
+
 
 function Copyright(props) {
   return (
@@ -126,7 +128,10 @@ export default function Auth() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={handleLogin}
+                onClick={()=>{
+                  handleLogin();
+                  Navigate("/")
+                }}
               >
                 Sign In
               </Button>
@@ -136,7 +141,10 @@ export default function Auth() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={handleSignUp}
+                onClick={()=>{
+                  handleSignUp();
+                  Navigate("/")
+                }}
               >
                 Sign UP
               </Button>

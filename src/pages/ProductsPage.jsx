@@ -1,10 +1,11 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
 import ProductsList from "../components/Products/ProductsList";
+import SideBar from "../components/Products/SideBar";
 
 const ProductsPage = () => {
   return (
-    <Box>
+    <Box p={5} >
       ProductsPage
       <Grid
         // sx={{ backgroundColor: "black", height: "100vh" }}
@@ -12,6 +13,7 @@ const ProductsPage = () => {
         spacing={3}
       >
         <ProductsList />
+        <SideBar/>
       </Grid>
     </Box>
   );
