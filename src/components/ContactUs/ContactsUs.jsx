@@ -4,21 +4,22 @@ import React from 'react';
 import  '../../components/ContactUs/contact.css'
 import './contact.css'
 
+
 const ContactsUs = () => {
     return (
       <Box>
         <Grid sx={{display: 'flex', justifyContent: 'center'}}>
-            <h1 style={{marginTop: '30px', width: '85%', background: 'blue', textAlign: 'center', color: "#fff", boxShadow: '0 1px 10px 3px #1976d2,', fontWeight: 600}}>Информация</h1>
+            <h1 style={{marginTop: '30px', background:'#1976d2', width: '100%',  textAlign: 'center', color: "#fff", fontFamily: '"Roboto","Helvetica","Arial",sans-serif', boxShadow: '0 1px 10px 3px #1976d2,', fontWeight: 400}}>Информация</h1>
 
          </Grid>
 
             
          <div className='block__video'>
 
-            <h2>О наших товарах</h2>
-                    <iframe width="90%" height="600px" src="https://www.youtube.com/embed/I8sK6rDHQTY" ></iframe>
+            <video  autoPlay  loop src=
+        'https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/ByZVUTp1Gja5fwdxr/videoblocks-shanghai-china-september-28-2019-people-inside-the-apple-store-at-nanjing-street-crowd-people-on-presentation-of-the-iphone-11-pro-and-sales-of-new-apple-products-in-the-official-apple-store-in_hympa5e68__e2c52cdcf2f1ff7e9797746b6a1fac56__P360.mp4'></video>
                     </div>
-
+                 
 
          <div style={{display: 'flex',marginTop: '50px', justifyContent: 'center' }}>
             <div className='block__nav' style={{display: 'flex',width: '100%', padding: '5px', justifyContent: 'space-around',fontSize: '20px', fontWeight: 600, borderTop: '1px solid black'}}>
@@ -58,11 +59,13 @@ const ContactsUs = () => {
                    
                     </div>
                     </div>
+
+                   
                 
                     <div className='map'>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.8868886381983!2d74.5832243153885!3d42.87523151040394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec83d9955c4b5%3A0x5d36dcab420bc180!2sSoftech.kg!5e0!3m2!1sru!2skg!4v1671702262352!5m2!1sru!2skg"  style={{width:'80%', height: '550px', border: '0px', marginBottom: '50px'}}></iframe></div>
 
-            
+          
       </Box>
     );
 };

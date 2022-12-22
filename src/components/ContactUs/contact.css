@@ -29,7 +29,6 @@ margin: 20px 33px 20px 0;
 .map{
     display: flex;
     justify-content: center;
-    box-shadow: 0 2px 6px 2px gray;
     padding: 50px 0;
     margin: 50px 0; 
     background-color: rgb(99, 99, 99);
@@ -41,20 +40,14 @@ margin: 20px 33px 20px 0;
     display: flex;
 align-items: center;
     flex-direction: column;
-    box-shadow: 0 2px 6px 2px gray;
-    padding: 50px 0;
+    box-shadow: 0 3px 6px 2px gray;
+    padding-bottom: 50px;
     margin: 50px 0; 
 }
-.block__video h2{
-    background: rgb(107, 77, 150);
-    /* background: rgb(44, 35, 53); */
-
-    width: 70%;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #fff;
-    padding: 3px;
+.block__video video{
+    width: 100%;
 }
+
 
 
 
