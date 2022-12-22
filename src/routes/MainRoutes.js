@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import ContactsUs from "../components/ContactUs/ContactsUs";
 import { useAuth } from "../contexts/authContext";
 import { ADMIN } from "../helpers/consts";
 import AdminPage from "../pages/AdminPage";
@@ -31,6 +32,11 @@ const MainRoutes = () => {
       element: <ProductsPage />,
       id: 4,
     },
+      {
+        link: "/contacts",
+        element: <ContactsUs/>,
+        id: 5,
+      }
   ];
 
   const PRIVATE_ROUTES = [
