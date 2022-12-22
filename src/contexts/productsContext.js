@@ -32,10 +32,37 @@ const ProductsContextProvider = ({ children }) => {
     }
   };
 
+  
+  
+  async function getProducts(){
+    try {
+      let {data} = await axios(JSON_API_PRODUCTS)
+      let action = {
+        type: ACTIONS.GET_PRODUCTS,
+        payload: data
+      }
+      dispatch(action)
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
+
+  const deleteProduct = async (id) =>{
+    try {
+      await axios.delete(`${JSON_API_PRODUCTS}/${id}`)
+      getProducts()
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
   let values = {
     addProduct,
+    getProducts,
+    products: state.products,
+    deleteProduct,
   };
-
   return (
     <productsContext.Provider value={values}>
       {children}

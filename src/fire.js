@@ -1,15 +1,16 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/app";
-import "firebase/compat/auth";
+import firebase from "firebase/compat/app"
+import 'firebase/compat/app'
+import 'firebase/compat/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAlxRW4tK5OVBrrXVHC5eSpgK0SDVg-uU8",
-  authDomain: "project-x-9498c.firebaseapp.com",
-  projectId: "project-x-9498c",
-  storageBucket: "project-x-9498c.appspot.com",
-  messagingSenderId: "280665118148",
-  appId: "1:280665118148:web:45cadf76e841190987c091",
+  apiKey: "AIzaSyCFvm12u1U-o9VbxtXakhsNISuXInsNey8",
+  authDomain: "project-x-c522f.firebaseapp.com",
+  projectId: "project-x-c522f",
+  storageBucket: "project-x-c522f.appspot.com",
+  messagingSenderId: "601823524347",
+  appId: "1:601823524347:web:f13b2ebde4de4dcef1c75e"
 };
 
-const fire = firebase.initializeApp(firebaseConfig);
+const fire = firebase.initializeApp(firebaseConfig)
+
 export default fire;

@@ -10,14 +10,19 @@ const AddProduct = () => {
   const [product, setProduct] = useState({
     name: "",
     description: "",
-    price: 0,
+    price: '',
     picture: "",
     type: "",
   });
 
+
+
+
   return (
     <Box sx={{ width: "60vw", margin: "10vh auto" }}>
       <TextField
+      value={product.name}
+      onChange={(e)=>setProduct((prev)=>({...prev, name: e.target.value}))}
         fullWidth
         id="outlined-basic"
         label="Name"
@@ -25,6 +30,8 @@ const AddProduct = () => {
         name="name"
       />
       <TextField
+       value={product.description}
+      onChange={(e)=>setProduct((prev)=>({...prev, description: e.target.value}))}
         fullWidth
         id="outlined-basic"
         label="Description"
@@ -32,6 +39,8 @@ const AddProduct = () => {
         name="description"
       />
       <TextField
+       value={product.price}
+      onChange={(e)=>setProduct((prev)=>({...prev, price: e.target.value}))}
         fullWidth
         id="outlined-basic"
         label="Price"
@@ -39,6 +48,8 @@ const AddProduct = () => {
         name="price"
       />
       <TextField
+       value={product.picture}
+      onChange={(e)=>setProduct((prev)=>({...prev, picture: e.target.value}))}
         fullWidth
         id="outlined-basic"
         label="Picture"
@@ -46,6 +57,8 @@ const AddProduct = () => {
         name="picture"
       />
       <TextField
+       value={product.type}
+      onChange={(e)=>setProduct((prev)=>({...prev, type: e.target.value}))}
         fullWidth
         id="outlined-basic"
         label="Type"
