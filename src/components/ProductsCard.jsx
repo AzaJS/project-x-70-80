@@ -15,7 +15,7 @@ export default function ProductCard({ item }) {
   const {
     user: { email },
   } = useAuth();
-  console.log(email);
+  // console.log(email);
 
   return (
     <Card sx={{ maxWidth: 345 }}>
