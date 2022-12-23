@@ -63,6 +63,7 @@ const pages = [
   { name: "ABOUT US", link: "/about", id: 1 },
   { name: "CONTACT US", link: "/contacts", id: 2 },
   { name: "PRODUCTS", link: "/products", id: 3 },
+  {name:  "HOME", link: "/", id:4}
 ];
 
 export default function Navbar() {
@@ -212,7 +213,7 @@ export default function Navbar() {
             />
           </Search>
           {user.email == ADMIN ? 
-            <Link style={{color: "white"}} to="/admin" >Admin</Link> : null}
+            <Link style={{color: "white", margin: "0 10px", textDecoration: ""}} to="/admin" >Admin</Link> : null}
           <Box sx={{ display: "flex", gap: "6px" }}>
             {pages.map((item) => (
               <Link to={item.link}>
