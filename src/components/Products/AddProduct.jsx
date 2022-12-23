@@ -10,7 +10,7 @@ const AddProduct = () => {
   const [product, setProduct] = useState({
     name: "",
     description: "",
-    price: 0,
+    price: "",
     picture: "",
     type: "",
   });
@@ -20,6 +20,10 @@ const AddProduct = () => {
   return (
     <Box sx={{ width: "60vw", margin: "10vh auto" }}>
       <TextField
+        value={product.name}
+        onChange={(e) =>
+          setProduct((prev) => ({ ...prev, name: e.target.value }))
+        }
         fullWidth
         id="outlined-basic"
         label="Name"

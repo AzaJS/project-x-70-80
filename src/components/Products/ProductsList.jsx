@@ -9,8 +9,8 @@ const ProductsList = () => {
   useEffect(() => {
     getProducts();
   }, []);
+  console.log(products);
 
-  // console.log(products);
   return (
     <Grid
       item
@@ -26,7 +26,7 @@ const ProductsList = () => {
         }}
       >
         {products.map((item) => (
-          <ProductCard item ={item} />
+          <ProductCard item={item} key={item.id} />
         ))}
       </Box>
     </Grid>

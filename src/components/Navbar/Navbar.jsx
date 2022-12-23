@@ -210,6 +210,18 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          {user.email == ADMIN ? (
+            <Link
+              style={{
+                color: "white",
+                margin: "0 10px",
+                textDecoration: "underline",
+              }}
+              to="/admin"
+            >
+              Admin
+            </Link>
+          ) : null}
           <Box sx={{ display: "flex", gap: "6px" }}>
             {pages.map((item) => (
               <Link to={item.link}>
