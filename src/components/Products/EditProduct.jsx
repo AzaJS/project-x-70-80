@@ -1,15 +1,33 @@
 import { Box, Button, TextField } from "@mui/material";
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useProducts } from "../../contexts/productsContext";
 
 const EditProduct = () => {
-  const { getOneProduct, oneProduct } = useProducts();
+  const navigate = useNavigate();
+  const { getOneProduct, oneProduct, saveEditedProduct } = useProducts();
+
+  const [product, setProduct] = useState(oneProduct);
+
+  useEffect(() => {
+    setProduct(oneProduct);
+  }, [oneProduct]);
+
   const { id } = useParams();
   useEffect(() => {
     getOneProduct(id);
   }, []);
-  console.log(oneProduct);
+
+  const handleInp = (e) => {
+    let obj = {
+      ...product,
+      [e.target.name]: e.target.value,
+    };
+    setProduct(obj);
+  };
+
+  console.log(product);
+
   return (
     <Box sx={{ width: "60vw", margin: "10vh auto" }}>
       <TextField
@@ -18,7 +36,8 @@ const EditProduct = () => {
         label="Name"
         name="name"
         id="outlined-basic"
-        // value={}
+        value={product.name || ""}
+        onChange={handleInp}
       />
       <TextField
         fullWidth
@@ -26,7 +45,8 @@ const EditProduct = () => {
         label="Description"
         name="description"
         id="outlined-basic"
-        // value={}
+        value={product.description || ""}
+        onChange={handleInp}
       />
       <TextField
         fullWidth
@@ -34,7 +54,8 @@ const EditProduct = () => {
         label="Price"
         name="price"
         id="outlined-basic"
-        // value={}
+        value={product.price || ""}
+        onChange={handleInp}
       />
       <TextField
         fullWidth
@@ -42,7 +63,8 @@ const EditProduct = () => {
         label="Picture"
         name="picture"
         id="outlined-basic"
-        // value={}
+        value={product.picture || ""}
+        onChange={handleInp}
       />
       <TextField
         fullWidth
@@ -50,9 +72,18 @@ const EditProduct = () => {
         label="Type"
         name="type"
         id="outlined-basic"
-        // value={}
+        value={product.type || ""}
+        onChange={handleInp}
       />
-      <Button variant="outlined" fullWidth size="large">
+      <Button
+        onClick={() => {
+          saveEditedProduct(id, product);
+          navigate(-1);
+        }}
+        variant="outlined"
+        fullWidth
+        size="large"
+      >
         Edit Product
       </Button>
     </Box>

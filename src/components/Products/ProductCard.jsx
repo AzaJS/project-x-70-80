@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -11,8 +10,10 @@ import { ADMIN } from "../../helpers/consts";
 import { IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useProducts } from "../../contexts/productsContext";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ item }) {
+  const navigate = useNavigate();
   const { deleteProduct } = useProducts();
   const {
     user: { email },
@@ -56,7 +57,7 @@ export default function ProductCard({ item }) {
         {email == ADMIN ? (
           <>
             <Button onClick={() => deleteProduct(item.id)}>Delete</Button>
-            <Button>Edit</Button>
+            <Button onClick={() => navigate(`/edit/${item.id}`)}>Edit</Button>
           </>
         ) : (
           <IconButton>
@@ -67,4 +68,3 @@ export default function ProductCard({ item }) {
     </Card>
   );
 }
-
