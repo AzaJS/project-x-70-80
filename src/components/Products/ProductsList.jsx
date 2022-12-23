@@ -3,16 +3,28 @@ import React, { useEffect } from "react";
 import { useProducts } from "../../contexts/productsContext";
 import ProductCard from "./ProductCard";
 
-
 const ProductsList = () => {
-  const { getProduct, products } = useProducts();
+  const { getProducts, products } = useProducts();
+
   useEffect(() => {
-    getProduct()
-  }, [])
+    getProducts();
+  }, []);
   console.log(products);
+
   return (
-    <Grid item md={9} sx={{ justifyContent: "center", display: "flex", flexWrap: "wrap" }}>
-      <Box sx={{ display: "flex", flexWrap: "wrap", minHeight: "40vh", mb: "3.5vh" }}>
+    <Grid
+      item
+      md={9}
+      sx={{ justifyContent: "center", display: "flex", flexWrap: "wrap" }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          minHeight: "40vh",
+          gap: "10px",
+        }}
+      >
         {products.map((item) => (
           <ProductCard item={item} key={item.id} />
         ))}

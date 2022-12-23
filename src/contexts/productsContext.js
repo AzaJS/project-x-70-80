@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { ACTIONS, JSON_API_PRODUCTS } from "../helpers/consts";
@@ -25,6 +26,28 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
+  const getProducts = async () => {
+    try {
+      let {data} = await axios(JSON_API_PRODUCTS)
+      let action = {
+        type: ACTIONS.GET_PRODUCTS,
+        payload: data,
+      }
+      dispatch(action)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const deleteProduct = async (id)=>{
+    try {
+      await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
+      getProducts();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const addProduct = async (newProduct) => {
     try {
       await axios.post(JSON_API_PRODUCTS, newProduct);
@@ -33,32 +56,15 @@ const ProductsContextProvider = ({ children }) => {
     }
   };
 
-  const getProduct = async () => {
-    try {
-      let { data } = await axios(JSON_API_PRODUCTS)
-      let action = {
-        type: ACTIONS.GET_PRODUCTS,
-        payload: data
-      }
-      dispatch(action)
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  const deleteProduct = async (id) => {
-    try {
-      await axios.delete(`${JSON_API_PRODUCTS}/${id}`)
-      getProduct()
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  
+
 
   let values = {
     products: state.products,
     addProduct,
-    getProduct,
+
+    getProducts,
     deleteProduct,
 
   };

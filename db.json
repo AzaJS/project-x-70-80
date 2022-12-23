@@ -25,6 +25,7 @@
       "id": 4
     },
     {
+
       "name": "Телефон ARK Benefit U4",
       "description": "Смартфон ARK обладает хорошей камерой на 0.1 Мп. Объем встроенной памяти составляет 0.032 Gb. Под крышкой скрывается аккумулятор ёмкостью 800 мАч",
       "price": 25,
@@ -49,6 +50,46 @@
       "id": 7
     },
     {
+      "name": "СМАРТ-ЧАСЫ HUAWEI WATCH GT2 PRO SPORT NIGHT BLACK",
+      "description": "Создатели HUAWEI WATCH GT поставили перед собой задачу выявить максимальный потенциал батареи смарт-часов. Благодаря двойному процессору для носимых устройств Kirin A1 (собственная разработка HUAWEI) и интеллектуальной технологии энергосбережения вы сможете пользоваться смарт-часами круглосуточно до 2 недель без подзарядки",
+      "price": 314,
+      "picture": "https://object.pscloud.io/cms/cms/Photo/img_0_911_461_0_6_320.webp",
+      "type": "watch",
+      "id": 8
+    },
+    {
+      "name": " СМАРТ-ЧАСЫ SAMSUNG GALAXY WATCH 3 STAINLESS 41MM SILVER (SM-R850NZSACIS)",
+      "description": "Теперь состояние здоровья контролировать стало легче. В инновационном устройстве Galaxy Watch3 с классическим дизайном гармонично сочетаются функциональность смартфона с новейшей технологией мониторинга здоровья пользователя.",
+      "price": 292,
+      "picture": "https://object.pscloud.io/cms/cms/Photo/img_0_911_410_6_1_320.webp",
+      "type": "watch",
+      "id": 9
+    },
+    {
+      "name": "СМАРТ ЧАСЫ SAMSUNG GALAXY WATCH ACTIVE 38MM SM-R500 BLACK (SM-R500NZKASKZ)",
+      "description": "Умные часы Galaxy Watch Active получили современный премиальный дизайн и умные технологии. Устройство выполнено в тонком и легком корпусе, внутри которого нашлось место для современной начинки и богатого набора функций.",
+      "price": 164,
+      "picture": "https://object.pscloud.io/cms/cms/Photo/img_0_911_285_4_320.webp",
+      "type": "watch",
+      "id": 10
+    },
+    {
+      "name": " СМАРТ-ЧАСЫ HUAWEI WATCH FIT ACTIVE SAKURA PINK",
+      "description": "Яркий AMOLED-экран 1,64 дюйма | Мониторинг здоровья1 и тренировок | GPS",
+      "price": 112,
+      "picture": "https://object.pscloud.io/cms/cms/Photo/img_0_911_432_7_1_320.webp",
+      "type": "watch",
+      "id": 11
+    },
+    {
+      "name": "СМАРТ-ЧАСЫ AMAZFIT BIP U BLACK",
+      "description": "Разрешение Xiaomi Amazfit Bip U составляет 320x302 пикселя. Высокое разрешение дисплея умных часов создает изысканный визуальный образ дисплея. Уведомления, сообщения и напоминания будут видны отчетливо при любом освещении.",
+      "price": 56,
+      "picture": "https://object.pscloud.io/cms/cms/Photo/img_0_911_542_0_1_320.webp",
+      "type": "watch",
+      "id": 12
+    },
+    {
       "name": "Ноутбук Dell G3 15 Gaming G3590 15.6 ' Intel Core i5 9300H 8 Gb DDR4 512 Gb SSD GTX 1060Ti белый",
       "description": "Системы Dell Gaming специально спроектированы с учетом уникальных высоких требований игровой аудитории. Они оснащаются новейшими процессорами и мощными выделенными графическими адаптерами, чтобы сделать каждую игру еще насыщеннее и реалистичнее.",
       "price": 1234,
@@ -63,6 +104,7 @@
       "picture": "https://svetofor.info/images/thumbnails/500/500/detailed/216/noutbuk-asus-x540ub-156-intel-core-i5-8250u-12-gb-ddr4-240-gb-ssd-nvidia-geforce-mx110-serebristyj-1.jpg",
       "type": "laptop",
       "id": 14
+
     },
     {
       "name": "Ноутбук Asus VivoBook S532FA-SB77 15.6 ' Intel Core i7 8565U 8 Gb DDR4 512 Gb SSD UHD Graphics 620 серебристый",

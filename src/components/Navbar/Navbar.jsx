@@ -69,7 +69,6 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { user, handleLogout } = useAuth();
 
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -212,8 +211,19 @@ export default function Navbar() {
             />
           </Search>
           {user.email == ADMIN ? (
-            <Link style={{ color: "white", margin: "0 10px", textDecoration: "underline" }} to="/admin">Admin</Link>
-          ) : (null)}
+
+            <Link
+              style={{
+                color: "white",
+                margin: "0 10px",
+                textDecoration: "underline",
+              }}
+              to="/admin"
+            >
+              Admin
+            </Link>
+          ) : null}
+
           <Box sx={{ display: "flex", gap: "6px" }}>
             {pages.map((item) => (
               <Link to={item.link} key={item.link}>
@@ -223,7 +233,7 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
-
+          {user.email == ADMIN ? <Link to="/Admin" style={{color: "white",margin: "20px",textDecoration: "underline"}}>Admin</Link> : null}
           {user ? <Box>{user.email}</Box> : <Box>Не авторизован</Box>}
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>

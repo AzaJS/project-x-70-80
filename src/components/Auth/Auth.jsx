@@ -36,7 +36,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Auth() {
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
+
+
   const {
     email,
     password,
@@ -129,8 +132,9 @@ export default function Auth() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={() => {
+                  handleLogin();
                   navigate("/");
-                  handleLogin()
+
                 }}
               >
                 Sign In
@@ -141,7 +145,10 @@ export default function Auth() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={handleSignUp}
+                onClick={() => {
+                  handleSignUp();
+                  navigate("/");
+                }}
               >
                 Sign UP
               </Button>
