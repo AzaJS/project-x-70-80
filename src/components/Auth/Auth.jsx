@@ -37,6 +37,7 @@ const theme = createTheme();
 
 export default function Auth() {
   const navigate = useNavigate();
+
   const {
     email,
     password,

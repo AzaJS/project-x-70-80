@@ -1,11 +1,11 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useProducts } from "../../contexts/productsContext";
-import ProductCard from "../ProductsCard";
+import ProductCard from "./ProductCard";
 
 const ProductsList = () => {
   const { getProducts, products } = useProducts();
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -21,7 +21,7 @@ const ProductsList = () => {
           display: "flex",
           flexWrap: "wrap",
           minHeight: "40vh",
-          mb: "3.5vh",
+          gap: "10px",
         }}
       >
         {products.map((item) => (

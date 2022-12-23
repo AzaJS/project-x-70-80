@@ -11,7 +11,7 @@ const SideBar = () => {
           id="input-with-icon-textfield"
           label="Search..."
           variant="outlined"
-          inputProps={{
+          InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <SearchIcon />

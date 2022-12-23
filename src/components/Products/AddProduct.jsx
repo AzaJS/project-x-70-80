@@ -29,6 +29,10 @@ const AddProduct = () => {
         label="Name"
         variant="outlined"
         name="name"
+        value={product.name}
+        onChange={(e) =>
+          setProduct((prev) => ({ ...prev, name: e.target.value }))
+        }
       />
       <TextField
         fullWidth
@@ -73,12 +77,11 @@ const AddProduct = () => {
         onChange={(e) =>
           setProduct((prev) => ({ ...prev, type: e.target.value }))
         }
-        // value={}
       />
       <Button
         onClick={() => {
           addProduct(product);
-          navigate("/products");
+          TextField(null);
         }}
         variant="outlined"
         fullWidth
