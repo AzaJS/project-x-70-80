@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/authContext";
 import { ADMIN } from "../helpers/consts";
 import AdminPage from "../pages/AdminPage";
 import AuthPage from "../pages/AuthPage";
+import EditProductPage from "../pages/EditProductPage";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import ProductsPage from "../pages/ProductsPage";
@@ -44,6 +45,11 @@ const MainRoutes = () => {
       link: "/admin",
       element: <AdminPage />,
       id: 1,
+    },
+    {
+      link: "/edit/:id",
+      element: <EditProductPage />,
+      id: 2,
     },
   ];
 
