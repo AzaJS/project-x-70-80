@@ -1,0 +1,35 @@
+.fon {
+    background-image: url(https://img.freepik.com/free-vector/white-abstract-background_23-2148808256.jpg?w=996&t=st=1671724486~exp=1671725086~hmac=776c072122236e85ad5f40b73174d5b9f4a0b39268a19a3a42ce14d407aa071f);
+}
+
+.divOne {
+    background: url(https://img.freepik.com/free-photo/perspective-exterior-nobody-empty-box_1258-260.jpg?w=996&t=st=1671725063~exp=1671725663~hmac=28bae6d89433fe2560dd2dcf141366d481313ddaa404bd369808150aea619bc4);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.linkButton {
+    margin: 40px;
+    width: 500px;
+}
+
+.home {
+    margin-left: 20px;
+    width: 50%;
+}
+h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 15px 7px 9px rgb(223, 216, 216);
+}
+.home p {
+    color: white;
+    font-size: 24px;
+    background: #B37459;
+    background: linear-gradient(to right, #B37459 0%, #3CADCF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    font-weight: 500;
+}
+

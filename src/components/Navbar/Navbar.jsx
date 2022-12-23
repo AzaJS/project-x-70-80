@@ -193,14 +193,16 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton>
+          <Link to="/" sx={{color: "black"}}>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            MUI
+            sx={{ color: "white" }}
+            >
+            ИДИ СЮДА
           </Typography>
+            </Link>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
