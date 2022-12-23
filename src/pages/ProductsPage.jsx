@@ -1,6 +1,7 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
 import ProductsList from "../components/Products/ProductsList";
+import SideBar from "../components/Products/SideBar";
 
 const ProductsPage = () => {
   return (
@@ -12,6 +13,7 @@ const ProductsPage = () => {
         spacing={3}
       >
         <ProductsList />
+        <SideBar />
       </Grid>
     </Box>
   );

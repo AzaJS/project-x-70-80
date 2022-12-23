@@ -10,10 +10,12 @@ const AddProduct = () => {
   const [product, setProduct] = useState({
     name: "",
     description: "",
-    price: 0,
+    price: "",
     picture: "",
     type: "",
   });
+
+
 
   return (
     <Box sx={{ width: "60vw", margin: "10vh auto" }}>
@@ -23,6 +25,8 @@ const AddProduct = () => {
         label="Name"
         variant="outlined"
         name="name"
+        value={product.name}
+        onChange={(e) => setProduct((prev) => ({ ...prev, name: e.target.value }))}
       />
       <TextField
         fullWidth
@@ -30,6 +34,8 @@ const AddProduct = () => {
         label="Description"
         variant="outlined"
         name="description"
+        value={product.description}
+        onChange={(e) => setProduct((prev) => ({ ...prev, description: e.target.value }))}
       />
       <TextField
         fullWidth
@@ -37,6 +43,8 @@ const AddProduct = () => {
         label="Price"
         variant="outlined"
         name="price"
+        value={product.price}
+        onChange={(e) => setProduct((prev) => ({ ...prev, price: e.target.value }))}
       />
       <TextField
         fullWidth
@@ -44,6 +52,8 @@ const AddProduct = () => {
         label="Picture"
         variant="outlined"
         name="picture"
+        value={product.picture}
+        onChange={(e) => setProduct((prev) => ({ ...prev, picture: e.target.value }))}
       />
       <TextField
         fullWidth
@@ -51,11 +61,13 @@ const AddProduct = () => {
         label="Type"
         variant="outlined"
         name="type"
+        value={product.type}
+        onChange={(e) => setProduct((prev) => ({ ...prev, type: e.target.value }))}
       />
       <Button
         onClick={() => {
           addProduct(product);
-          navigate("/products");
+          // navigate("/products");
         }}
         variant="outlined"
         fullWidth

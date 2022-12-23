@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { ACTIONS, JSON_API_PRODUCTS } from "../helpers/consts";
 
+
 export const productsContext = createContext();
 
 export const useProducts = () => {
@@ -32,8 +33,34 @@ const ProductsContextProvider = ({ children }) => {
     }
   };
 
+  const getProduct = async () => {
+    try {
+      let { data } = await axios(JSON_API_PRODUCTS)
+      let action = {
+        type: ACTIONS.GET_PRODUCTS,
+        payload: data
+      }
+      dispatch(action)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteProduct = async (id) => {
+    try {
+      await axios.delete(`${JSON_API_PRODUCTS}/${id}`)
+      getProduct()
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   let values = {
+    products: state.products,
     addProduct,
+    getProduct,
+    deleteProduct,
+
   };
 
   return (
