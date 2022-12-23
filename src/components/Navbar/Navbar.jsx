@@ -231,7 +231,7 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
-
+          {user.email == ADMIN ? <Link to="/Admin" style={{color: "white",margin: "20px",textDecoration: "underline"}}>Admin</Link> : null}
           {user ? <Box>{user.email}</Box> : <Box>Не авторизован</Box>}
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>

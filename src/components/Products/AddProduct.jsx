@@ -15,6 +15,8 @@ const AddProduct = () => {
     type: "",
   });
 
+  console.log(product);
+
   return (
     <Box sx={{ width: "60vw", margin: "10vh auto" }}>
       <TextField
@@ -27,6 +29,10 @@ const AddProduct = () => {
         label="Name"
         variant="outlined"
         name="name"
+        value={product.name}
+        onChange={(e) =>
+          setProduct((prev) => ({ ...prev, name: e.target.value }))
+        }
       />
       <TextField
         fullWidth
@@ -75,7 +81,7 @@ const AddProduct = () => {
       <Button
         onClick={() => {
           addProduct(product);
-          navigate("/products");
+          TextField(null)
         }}
         variant="outlined"
         fullWidth

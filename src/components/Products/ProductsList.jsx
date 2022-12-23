@@ -5,10 +5,12 @@ import ProductCard from "./ProductCard";
 
 const ProductsList = () => {
   const { getProducts, products } = useProducts();
+
   useEffect(() => {
     getProducts();
   }, []);
   console.log(products);
+
   return (
     <Grid
       item

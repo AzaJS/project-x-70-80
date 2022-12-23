@@ -1,6 +1,7 @@
 {
   "products": [
     {
+
       "name": "Apple iPhone SE 64GB серебристый",
       "description": "Представляем iPhone SE — самый мощный 4-дюймовый смартфон в истории. Чтобы создать его, разработчики взяли за основу полюбившийся дизайн и полностью поменяли содержание. Установили тот же передовой процессор A9, что и на iPhone 6s, и камеру 12 Мп для съёмки невероятных фотографий и видео 4K. А благодаря Live Photos любой ваш снимок буквально оживёт.",
       "price": 415,
@@ -33,6 +34,7 @@
       "id": 4
     },
     {
+
       "name": "Телефон ARK Benefit U4",
       "description": "Смартфон ARK обладает хорошей камерой на 0.1 Мп. Объем встроенной памяти составляет 0.032 Gb. Под крышкой скрывается аккумулятор ёмкостью 800 мАч",
       "price": 25,
@@ -111,22 +113,7 @@
       "picture": "https://svetofor.info/images/thumbnails/500/500/detailed/216/noutbuk-asus-x540ub-156-intel-core-i5-8250u-12-gb-ddr4-240-gb-ssd-nvidia-geforce-mx110-serebristyj-1.jpg",
       "type": "laptop",
       "id": 14
-    },
-    {
-      "name": "Ноутбук Asus VivoBook S532FA-SB77 15.6 ' Intel Core i7 8565U 8 Gb DDR4 512 Gb SSD UHD Graphics 620 серебристый",
-      "description": "оутбук ASUS, модель VivoBook S15 S532FA (S532FA-SB77) оснащён всем необходимым для быстрой и комфортной работы. Быстродействие обеспечивает 4-ядерный процессор Intel Core i7-8565U с частотой работы 1,8 ГГц (до 4,6 ГГц в режиме TurboBoost) и 8 ГБ оперативной памяти. Для хранения данных установлен накопитель 512 ГБ SSD, присутствует кардридер . Видео на 15,6\" IPS экран с разрешением 1920x1080 точек выводит графический адаптер Intel HD Graphics 630. ",
-      "price": 600,
-      "picture": "https://svetofor.info/images/thumbnails/500/500/detailed/182/noutbuk-asus-vivobook-s532fa-sb77-156-intel-core-i7-8565u-8-gb-ddr4-512-gb-ssd-uhd-graphics-620-serebristyj.jpg",
-      "type": "laptop",
-      "id": 15
-    },
-    {
-      "name": "Ноутбук Lenovo Yoga Slim 7 15ITL05 Core i7-1165G7 (up to 4.7Ghz), 16GB, 256GB SSD,",
-      "description": "16GB, 256GB SSD, Intel® Iris® Xe Graphics, 15.6\" IPS FULL HD (1920x1080), WiFi, BT, Cam, DOS, Eng-Rus",
-      "price": 1300,
-      "picture": "https://ultra.kg/upload/resize_cache/iblock/f61/500_500_1d0e97ea46f4438969ab06dd5b311ca67/f6115937c5ce83d1ace89a7611a41026.jpg",
-      "type": "laptop",
-      "id": 16
+    }
     }
   ]
 }
