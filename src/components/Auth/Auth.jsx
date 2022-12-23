@@ -39,6 +39,7 @@ export default function Auth() {
 
   const navigate = useNavigate();
 
+
   const {
     email,
     password,
@@ -133,6 +134,7 @@ export default function Auth() {
                 onClick={() => {
                   handleLogin();
                   navigate("/");
+
                 }}
               >
                 Sign In

@@ -3,13 +3,14 @@ import "firebase/compat/app";
 import "firebase/compat/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDkiHws7RZEiCmHHd6Sqb7Zq0JDFZIm7dc",
-  authDomain: "product-or-azret.firebaseapp.com",
-  projectId: "product-or-azret",
-  storageBucket: "product-or-azret.appspot.com",
-  messagingSenderId: "270753435",
-  appId: "1:270753435:web:a0ce0722833cdff6c9703e",
-};
 
+  apiKey: "AIzaSyCId_uA87ZWh5J0mims8TMJaGpO8UL77tw",
+  authDomain: "project-x-bb494.firebaseapp.com",
+  projectId: "project-x-bb494",
+  storageBucket: "project-x-bb494.appspot.com",
+  messagingSenderId: "637392238692",
+  appId: "1:637392238692:web:d62123a836981997e30771"
+
+};
 const fire = firebase.initializeApp(firebaseConfig);
 export default fire;

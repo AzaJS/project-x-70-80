@@ -4,4 +4,6 @@ export const ACTIONS = {
 
 export const JSON_API_PRODUCTS = "http://localhost:65535/products";
 
-export const ADMIN = "dragoverlord@mail.ru";
+
+export const ADMIN = "magometovmustafa@gmail.com";
+

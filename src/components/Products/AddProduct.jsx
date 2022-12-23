@@ -15,7 +15,6 @@ const AddProduct = () => {
     type: "",
   });
 
-  console.log(product);
 
   return (
     <Box sx={{ width: "60vw", margin: "10vh auto" }}>
@@ -33,6 +32,7 @@ const AddProduct = () => {
         onChange={(e) =>
           setProduct((prev) => ({ ...prev, name: e.target.value }))
         }
+
       />
       <TextField
         fullWidth
@@ -44,6 +44,7 @@ const AddProduct = () => {
         onChange={(e) =>
           setProduct((prev) => ({ ...prev, description: e.target.value }))
         }
+
       />
       <TextField
         fullWidth
@@ -52,9 +53,11 @@ const AddProduct = () => {
         variant="outlined"
         name="price"
         value={product.price}
+
         onChange={(e) =>
           setProduct((prev) => ({ ...prev, price: e.target.value }))
         }
+
       />
       <TextField
         fullWidth
@@ -63,9 +66,11 @@ const AddProduct = () => {
         variant="outlined"
         name="picture"
         value={product.picture}
+
         onChange={(e) =>
           setProduct((prev) => ({ ...prev, picture: e.target.value }))
         }
+
       />
       <TextField
         fullWidth
@@ -74,14 +79,18 @@ const AddProduct = () => {
         variant="outlined"
         name="type"
         value={product.type}
+
         onChange={(e) =>
           setProduct((prev) => ({ ...prev, type: e.target.value }))
         }
+
       />
       <Button
         onClick={() => {
           addProduct(product);
-          TextField(null)
+
+          navigate("/products");
+
         }}
         variant="outlined"
         fullWidth

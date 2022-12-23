@@ -211,6 +211,7 @@ export default function Navbar() {
             />
           </Search>
           {user.email == ADMIN ? (
+
             <Link
               style={{
                 color: "white",
@@ -222,9 +223,10 @@ export default function Navbar() {
               Admin
             </Link>
           ) : null}
+
           <Box sx={{ display: "flex", gap: "6px" }}>
             {pages.map((item) => (
-              <Link to={item.link}>
+              <Link to={item.link} key={item.link}>
                 <Typography sx={{ color: "white" }}>{item.name}</Typography>
               </Link>
             ))}
