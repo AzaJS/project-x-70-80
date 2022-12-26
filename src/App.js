@@ -19,5 +19,3 @@ const App = () => {
 };
 
 export default App;
-
-// ! ПЕРЕРЫВ ДО 11:47

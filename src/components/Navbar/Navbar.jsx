@@ -18,6 +18,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { useAuth } from "../../contexts/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import { ADMIN } from "../../helpers/consts";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import { useCart } from "../../contexts/cartContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -67,7 +69,15 @@ const pages = [
 
 export default function Navbar() {
   const navigate = useNavigate();
+
   const { user, handleLogout } = useAuth();
+  const { getCart, cart } = useCart();
+
+  React.useEffect(() => {
+    getCart();
+  }, []);
+
+  console.log(cart);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -199,7 +209,7 @@ export default function Navbar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            70-80 shop
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -231,26 +241,17 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
-          {user.email == ADMIN ? <Link to="/Admin" style={{color: "white",margin: "20px",textDecoration: "underline"}}>Admin</Link> : null}
+
           {user ? <Box>{user.email}</Box> : <Box>Не авторизован</Box>}
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
             >
               <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+                <ShoppingBagIcon />
               </Badge>
             </IconButton>
 

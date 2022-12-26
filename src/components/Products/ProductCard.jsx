@@ -11,14 +11,16 @@ import { IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useProducts } from "../../contexts/productsContext";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../contexts/cartContext";
 
 export default function ProductCard({ item }) {
   const navigate = useNavigate();
+
+  const { addProductToCart } = useCart();
   const { deleteProduct } = useProducts();
   const {
     user: { email },
   } = useAuth();
-  console.log(email);
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -61,7 +63,7 @@ export default function ProductCard({ item }) {
             <Button onClick={() => navigate(`/edit/${item.id}`)}>Edit</Button>
           </>
         ) : (
-          <IconButton>
+          <IconButton onClick={() => addProductToCart(item)}>
             <AddShoppingCartIcon />
           </IconButton>
         )}

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { CART } from "../helpers/consts";
+import { calcTotalPrice } from "../helpers/functions";
 
 const cartContext = createContext();
 
@@ -45,8 +46,45 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
+  const addProductToCart = (product) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+    let newProduct = {
+      item: product,
+      count: 1,
+      subPrice: +product.price,
+    };
+
+    let productToFind = cart.products.filter(
+      (elem) => elem.item.id === product.id
+    );
+
+    if (productToFind.length == 0) {
+      cart.products.push(newProduct);
+    } else {
+      cart.products = cart.products.filter(
+        (elem) => elem.item.id !== product.id
+      );
+    }
+
+    cart.totalPrice = calcTotalPrice(cart.products);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    dispatch({
+      type: CART.GET_CART,
+      payload: cart,
+    });
+  };
+
   let values = {
     getCart,
+    addProductToCart,
     cart: state.cart,
   };
 
