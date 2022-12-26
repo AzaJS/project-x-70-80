@@ -8,6 +8,7 @@ import AuthPage from "../pages/AuthPage";
 import EditProductPage from "../pages/EditProductPage";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
+import ProductDetailsPage from "../pages/ProductDetailsPage";
 import ProductsPage from "../pages/ProductsPage";
 
 const MainRoutes = () => {
@@ -37,6 +38,11 @@ const MainRoutes = () => {
       link: "/About",
       element: <AboutUs />,
       id: 5,
+    },
+    {
+      link: "/products/:id",
+      element: <ProductDetailsPage />,
+      id: 6,
     },
   ];
 

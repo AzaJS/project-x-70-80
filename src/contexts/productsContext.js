@@ -52,6 +52,7 @@ const ProductsContextProvider = ({ children }) => {
   const addProduct = async (newProduct) => {
     try {
       await axios.post(JSON_API_PRODUCTS, newProduct);
+      getProducts();
     } catch (error) {
       console.log(error);
     }
@@ -73,6 +74,7 @@ const ProductsContextProvider = ({ children }) => {
   const saveEditedProduct = async (id, newProduct) => {
     try {
       await axios.patch(`${JSON_API_PRODUCTS}/${id}`, newProduct);
+      getProducts();
     } catch (error) {
       console.log(error);
     }
