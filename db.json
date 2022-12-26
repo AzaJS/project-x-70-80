@@ -103,6 +103,14 @@
       "picture": "https://svetofor.info/images/thumbnails/500/500/detailed/183/noutbuk-dell-g3-15-gaming-g3590-156-intel-core-i5-9300h-8-gb-ddr4-512-gb-ssd-gtx-1060ti-belyj-1.jpg",
       "type": "laptop",
       "id": 13
+    },
+    {
+      "name": "watchaaaaa",
+      "description": "1",
+      "price": "14141111",
+      "picture": "https://svetofor.info/images/thumbnails/500/500/detailed/74/apple-iphone-se-silver_2c7c-lk.jpg",
+      "type": "telephone",
+      "id": 14
     }
   ]
 }

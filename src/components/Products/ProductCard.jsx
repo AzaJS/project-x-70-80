@@ -23,9 +23,10 @@ export default function ProductCard({ item }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 140, cursor: "pointer" }}
         image={item.picture}
         title="green iguana"
+        onClick={() => navigate(`/products/${item.id}`)}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
