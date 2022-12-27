@@ -30,7 +30,9 @@ const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const location = useLocation();
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
+
 
   const getProducts = async () => {
     try {
@@ -115,6 +117,19 @@ const ProductsContextProvider = ({ children }) => {
     navigate(url)
 
   }
+
+  const fetchByParams = async (query, value) => {
+    const search = new URLSearchParams(location.search);
+
+    if (value == "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+
+    const url = `${location.pathname}?${search.toString()}`;
+    navigate(url);
+  };
 
   let values = {
     products: state.products,

@@ -1,11 +1,25 @@
-import { FormControl, FormControlLabel, FormLabel, Grid, InputAdornment, Paper, Radio, RadioGroup, TextField } from "@mui/material";
+
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Grid,
+  InputAdornment,
+  Paper,
+  Radio,
+  RadioGroup,
+  TextField,
+} from "@mui/material";
+
 import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSearchParams } from "react-router-dom";
 import { useProducts } from "../../contexts/productsContext";
 
 const SideBar = () => {
-  const {fetchByParams}= useProducts()
+
+  const { fetchByParams } = useProducts();
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [search, setSearch] = useState(searchParams.get("q") || "");
@@ -40,22 +54,55 @@ const SideBar = () => {
         <Grid>
           <FormControl>
             <FormLabel>Type</FormLabel>
-            <RadioGroup onChange={(e)=>fetchByParams('type', e.target.value)}>
-              <FormControlLabel value='all' control={<Radio/>} label='all'/>
-              <FormControlLabel value='telephone' control={<Radio/>} label='telephone'/>
-              <FormControlLabel value='laptop' control={<Radio/>} label='laptop'/>
-              <FormControlLabel value='watch' control={<Radio/>} label='watch'/>
+            <RadioGroup onChange={(e) => fetchByParams("type", e.target.value)}>
+              <FormControlLabel value="all" control={<Radio />} label="all" />
+              <FormControlLabel
+                value="telephone"
+                control={<Radio />}
+                label="telephone"
+              />
+              <FormControlLabel
+                value="laptop"
+                control={<Radio />}
+                label="laptop"
+              />
+              <FormControlLabel
+                value="watch"
+                control={<Radio />}
+                label="watch"
+              />
             </RadioGroup>
           </FormControl>
+          <input
+            step={100}
+            min={1}
+            max={10000}
+            onChange={(e) => console.log(e.target.value)}
+            type="range"
+            name=""
+            id=""
+          />
           <FormControl>
             <FormLabel>Price</FormLabel>
-            <RadioGroup 
-            onChange={(e)=>fetchByParams("price_lte", e.target.value)}
+            <RadioGroup
+              onChange={(e) => fetchByParams("price_lte", e.target.value)}
             >
-              <FormControlLabel value='all' control={<Radio/>} label='all'/>
-              <FormControlLabel value='100' control={<Radio/>} label='less than 100$'/>
-              <FormControlLabel value='600' control={<Radio/>} label='less than 600$'/>
-              <FormControlLabel value='1300' control={<Radio/>} label='less than 1300$'/>
+              <FormControlLabel value="all" control={<Radio />} label="all" />
+              <FormControlLabel
+                value="100"
+                control={<Radio />}
+                label="less than 100$"
+              />
+              <FormControlLabel
+                value="600"
+                control={<Radio />}
+                label="less than 600$"
+              />
+              <FormControlLabel
+                value="1300"
+                control={<Radio />}
+                label="less than 1300$"
+              />
             </RadioGroup>
           </FormControl>
         </Grid>

@@ -8,34 +8,23 @@ const ProductsList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { getProducts, products } = useProducts();
 
-  const [page, setPage] = useState(1)
 
-  const itemsPerPage = 5
+  const [page, setPage] = useState(1);
 
-  const count = Math.ceil(products.length / itemsPerPage)
+  const itemsPerPage = 5;
 
-  const handleChange = (e,p) =>{
+  const count = Math.ceil(products.length / itemsPerPage);
+
+  const handleChange = (e, p) => {
     console.log(p);
-    setPage(p)
-  }
+    setPage(p);
+  };
 
-  function currentData (){
-    const begin = (page-1) * itemsPerPage // 5
-    const end = begin + itemsPerPage //5
+  function currentData() {
+    const begin = (page - 1) * itemsPerPage; //0
+    const end = begin + itemsPerPage; // 5
     return products.slice(begin, end);
   }
-
-  // const [page,setPage]= useState(searchParams.get("_page") ? searchParams.get('_page'):1)
-
-  // const [limit, setLimit] = useState(searchParams.get("_limit") ? searchParams.get('_limit'):5)
-
-
-  // useEffect(() => {
-  //   setSearchParams({
-  //     _page: page,
-  //     _limit: limit,
-  //   })
-  // }, []);
 
   useEffect(() => {
     getProducts();
@@ -55,20 +44,21 @@ const ProductsList = () => {
           gap: "10px",
         }}
       >
-        
-        {products.length > 0 ? (currentData().map((item) => (
-          <ProductCard item={item} key={item.id} />
-        ))) : (<><CircularProgress color="inherit" />
-        </>)}
-
-        
+        {products.length > 0 ? (
+          currentData().map((item) => <ProductCard item={item} key={item.id} />)
+        ) : (
+          <>
+            <CircularProgress color="inherit" />
+          </>
+        )}
       </Box>
-      <Pagination 
-      sx={{m:3}} 
-      count={count} 
-      page={page} 
-      onChange={handleChange}
-      shape="rounded" />
+      <Pagination
+        sx={{ m: 2 }}
+        count={count}
+        page={page}
+        onChange={handleChange}
+        shape="rounded"
+      />
 
     </Grid>
   );
