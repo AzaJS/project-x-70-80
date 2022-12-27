@@ -29,53 +29,55 @@ const AddProduct = () => {
         label="Name"
         variant="outlined"
         name="name"
-    
       />
       <TextField
-       value={product.description}
-      onChange={(e)=>setProduct((prev)=>({...prev, description: e.target.value}))}
+        value={product.description}
+        onChange={(e) =>
+          setProduct((prev) => ({ ...prev, description: e.target.value }))
+        }
         fullWidth
         id="outlined-basic"
         label="Description"
         variant="outlined"
         name="description"
-
       />
       <TextField
-       value={product.price}
-      onChange={(e)=>setProduct((prev)=>({...prev, price: e.target.value}))}
+        value={product.price}
+        onChange={(e) =>
+          setProduct((prev) => ({ ...prev, price: e.target.value }))
+        }
         fullWidth
         id="outlined-basic"
         label="Price"
         variant="outlined"
         name="price"
-    
       />
       <TextField
-       value={product.picture}
-      onChange={(e)=>setProduct((prev)=>({...prev, picture: e.target.value}))}
+        value={product.picture}
+        onChange={(e) =>
+          setProduct((prev) => ({ ...prev, picture: e.target.value }))
+        }
         fullWidth
         id="outlined-basic"
         label="Picture"
         variant="outlined"
         name="picture"
-       
-        
       />
       <TextField
-       value={product.type}
-      onChange={(e)=>setProduct((prev)=>({...prev, type: e.target.value}))}
+        value={product.type}
+        onChange={(e) =>
+          setProduct((prev) => ({ ...prev, type: e.target.value }))
+        }
         fullWidth
         id="outlined-basic"
         label="Type"
         variant="outlined"
         name="type"
-     
       />
       <Button
         onClick={() => {
           addProduct(product);
-          TextField(null)
+          navigate(-1);
         }}
         variant="outlined"
         fullWidth
