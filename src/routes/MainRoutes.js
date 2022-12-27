@@ -6,6 +6,7 @@ import { ADMIN } from "../helpers/consts";
 import AdminPage from "../pages/AdminPage";
 import AuthPage from "../pages/AuthPage";
 import CartPage from "../pages/CartPage";
+import ContactsPage from "../pages/ContactsPage";
 import EditProductPage from "../pages/EditProductPage";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -50,6 +51,12 @@ const MainRoutes = () => {
       element: <CartPage />,
       id: 7,
     },
+    {
+      link: '/contacts',
+      element: <ContactsPage />,
+      id: 8
+    }
+  
   ];
 
   const PRIVATE_ROUTES = [

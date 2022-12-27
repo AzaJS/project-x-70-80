@@ -63,12 +63,12 @@ export default function Cart() {
               <StyledTableCell component="th" scope="row">
                 <img src={row.item.picture} width="70px" height="70px" alt="" />
               </StyledTableCell>
-              <StyledTableCell align="right">{row.item.name}</StyledTableCell>
+              <StyledTableCell sx={{fontWeight: 600}} align="right">{row.item.name}</StyledTableCell>
               <StyledTableCell align="right">{row.item.type}</StyledTableCell>
-              <StyledTableCell align="right">
+              <StyledTableCell sx={{textAlign: 'center'}} align="right">
                 {row.item.description}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.item.price}</StyledTableCell>
+              <StyledTableCell  align="right">{row.item.price}</StyledTableCell>
               <StyledTableCell align="right">
                 <input
                   type="number"
@@ -80,7 +80,7 @@ export default function Cart() {
                   }
                 />
               </StyledTableCell>
-              <StyledTableCell align="right">{row.subPrice}</StyledTableCell>
+              <StyledTableCell  sx={{fontWeight: 600}} align="right">{row.subPrice}</StyledTableCell>
               <StyledTableCell align="right">
                 <Button onClick={() => deleteCartProduct(row.item.id)}>
                   DELETE

@@ -1,3 +1,4 @@
+
 import {
   FormControl,
   FormControlLabel,
@@ -9,13 +10,16 @@ import {
   RadioGroup,
   TextField,
 } from "@mui/material";
+
 import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSearchParams } from "react-router-dom";
 import { useProducts } from "../../contexts/productsContext";
 
 const SideBar = () => {
+
   const { fetchByParams } = useProducts();
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [search, setSearch] = useState(searchParams.get("q") || "");
@@ -102,6 +106,7 @@ const SideBar = () => {
             </RadioGroup>
           </FormControl>
         </Grid>
+
       </Paper>
     </Grid>
   );

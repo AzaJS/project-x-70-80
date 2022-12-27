@@ -68,6 +68,7 @@ const pages = [
 ];
 
 export default function Navbar() {
+
   const navigate = useNavigate();
 
   const { user, handleLogout } = useAuth();
@@ -239,7 +240,7 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
-
+          
           {user ? <Box>{user.email}</Box> : <Box>Не авторизован</Box>}
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>

@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -29,7 +30,9 @@ const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const location = useLocation();
+
   const navigate = useNavigate();
+
 
   const getProducts = async () => {
     try {
@@ -45,6 +48,8 @@ const ProductsContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+
 
   const deleteProduct = async (id) => {
     try {
@@ -64,18 +69,6 @@ const ProductsContextProvider = ({ children }) => {
     }
   };
 
-  const getOneProduct = async (id) => {
-    try {
-      const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
-      let action = {
-        type: ACTIONS.GET_ONE_PRODUCT,
-        payload: data,
-      };
-      dispatch(action);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const saveEditedProduct = async (id, newProduct) => {
     try {
@@ -85,6 +78,45 @@ const ProductsContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  
+
+  
+  const getOneProduct= async(id)=>{
+      try {
+        const {data} = await axios(`${JSON_API_PRODUCTS}/${id}`)
+        let action = {
+          type: ACTIONS.GET_ONE_PRODUCT,
+          payload: data,
+        }
+        dispatch(action)
+
+      } catch (error) {
+        console.log(error);
+      }
+  }
+
+  const editOneProduct = async(id, newobj) =>{
+    try {
+      const {data} = await axios.patch(`${JSON_API_PRODUCTS}/${id}`, newobj)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const fetchByParams = async (query, value)=>{
+    const search = new URLSearchParams(location.search)
+
+
+    if (value =='all'){
+      search.delete(query)
+    }else{
+      search.set(query,value)
+    }
+    const url = `${location.pathname}?${search.toString()}`
+    navigate(url)
+
+  }
 
   const fetchByParams = async (query, value) => {
     const search = new URLSearchParams(location.search);
@@ -102,14 +134,13 @@ const ProductsContextProvider = ({ children }) => {
   let values = {
     products: state.products,
     oneProduct: state.oneProduct,
-    saveEditedProduct,
+    editOneProduct,
     addProduct,
     getProducts,
-    deleteProduct,
     getOneProduct,
+    deleteProduct,
     fetchByParams,
   };
-
   return (
     <productsContext.Provider value={values}>
       {children}

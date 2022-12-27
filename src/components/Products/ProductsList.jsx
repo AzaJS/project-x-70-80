@@ -8,6 +8,7 @@ const ProductsList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { getProducts, products } = useProducts();
 
+
   const [page, setPage] = useState(1);
 
   const itemsPerPage = 5;
@@ -58,6 +59,7 @@ const ProductsList = () => {
         onChange={handleChange}
         shape="rounded"
       />
+
     </Grid>
   );
 };
