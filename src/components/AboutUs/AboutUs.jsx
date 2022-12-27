@@ -1,10 +1,10 @@
 import React from "react";
-import "./AboutUs.css";
+// import "./AboutUs.css";
 // https://www.youtube.com/watch?v=kwlOAeFLKH0
 
 const AboutUs = () => {
   return (
-    <div className="about__block">
+    <div style={{ color: "white" }}>
       <video id="background-video" loop autoPlay muted>
         <source src={require("./videoplayback.mp4")} type="video/mp4" />
       </video>
@@ -75,18 +75,9 @@ const AboutUs = () => {
         <br />
         <h2>Наш Топ-новинок</h2>
         <div className="img-div">
-          <img
-            src={require("./pngwing.com.png")}
-            alt=""
-          />
-          <img
-            src={require("./pngwing.com1.png")}
-            alt=""
-          />
-          <img
-            src={require("./pngwing.com2.png")}
-            alt=""
-          />
+          <img src={require("./pngwing.com.png")} alt="" />
+          <img src={require("./pngwing.com1.png")} alt="" />
+          <img src={require("./pngwing.com2.png")} alt="" />
         </div>
       </div>
     </div>

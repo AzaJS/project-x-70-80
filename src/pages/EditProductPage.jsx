@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import EditProduct from '../components/Products/EditProduct';
-import { useProducts } from '../contexts/productsContext';
+import React from "react";
+import EditProduct from "../components/Products/EditProduct";
 
 const EditProductPage = () => {
-    
-    return (
-        <div>
-            <EditProduct/>
-        </div>
-    );
+  return (
+    <div>
+      EditProductPage
+      <EditProduct />
+    </div>
+  );
 };
 
 export default EditProductPage;

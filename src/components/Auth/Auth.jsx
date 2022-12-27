@@ -39,7 +39,8 @@ const theme = createTheme();
 
 
 export default function Auth() {
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
 
   const {
     email,
@@ -132,10 +133,9 @@ export default function Auth() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={()=>{
-                  handleLogin()
-                  navigate('/')
-
+                onClick={() => {
+                  handleLogin();
+                  navigate("/");
                 }}
               >
                 Sign In
@@ -146,10 +146,9 @@ export default function Auth() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={()=>{
-                  handleSignUp()
-                  navigate('/')
-
+                onClick={() => {
+                  handleSignUp();
+                  navigate("/");
                 }}
               >
                 Sign UP

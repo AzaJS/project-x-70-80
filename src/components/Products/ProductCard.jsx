@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -11,20 +10,26 @@ import { ADMIN } from "../../helpers/consts";
 import { IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useProducts } from "../../contexts/productsContext";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../contexts/cartContext";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function ProductCard({ item }) {
+  const navigate = useNavigate();
+
+  const { addProductToCart, checkProductInCart } = useCart();
   const { deleteProduct } = useProducts();
   const {
     user: { email },
   } = useAuth();
-  console.log(email);
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 140, cursor: "pointer" }}
         image={item.picture}
         title="green iguana"
+        onClick={() => navigate(`/products/${item.id}`)}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -56,15 +61,26 @@ export default function ProductCard({ item }) {
         {email == ADMIN ? (
           <>
             <Button onClick={() => deleteProduct(item.id)}>Delete</Button>
-            <Button>Edit</Button>
+            <Button onClick={() => navigate(`/edit/${item.id}`)}>Edit</Button>
           </>
         ) : (
-          <IconButton>
-            <AddShoppingCartIcon />
+          <IconButton onClick={() => addProductToCart(item)}>
+            {checkProductInCart(item.id) ? (
+              <>
+                <ShoppingCartIcon
+                  sx={{
+                    color: "brown",
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <AddShoppingCartIcon />
+              </>
+            )}
           </IconButton>
         )}
       </CardActions>
     </Card>
   );
 }
-

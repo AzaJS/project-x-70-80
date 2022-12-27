@@ -18,8 +18,8 @@ const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case ACTIONS.GET_PRODUCTS:
       return { ...state, products: action.payload };
-      case ACTIONS.GET_ONE_PRODUCT:
-        return {...state, oneProduct: action.payload}
+    case ACTIONS.GET_ONE_PRODUCT:
+      return { ...state, oneProduct: action.payload };
     default:
       return state;
   }
@@ -30,35 +30,48 @@ const ProductsContextProvider = ({ children }) => {
 
   const getProducts = async () => {
     try {
-      let {data} = await axios(JSON_API_PRODUCTS)
-      console.log(data);
+      let { data } = await axios(
+        `${JSON_API_PRODUCTS}${window.location.search}`
+      );
       let action = {
-        type:ACTIONS.GET_PRODUCTS,
+        type: ACTIONS.GET_PRODUCTS,
         payload: data,
-      }
-      dispatch(action)
+      };
+      dispatch(action);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  const deleteProduct = async (id)=>{
+  const deleteProduct = async (id) => {
     try {
       await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
       getProducts();
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const addProduct = async (newProduct) => {
     try {
       await axios.post(JSON_API_PRODUCTS, newProduct);
+      getProducts();
     } catch (error) {
       console.log(error);
     }
   };
 
+
+  const saveEditedProduct = async (id, newProduct) => {
+    try {
+      await axios.patch(`${JSON_API_PRODUCTS}/${id}`, newProduct);
+      getProducts();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  
 
   
   const getOneProduct= async(id)=>{

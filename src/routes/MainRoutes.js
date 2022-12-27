@@ -1,17 +1,16 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import ContactsUs from "../components/ContactUs/ContactsUs";
 import AboutUs from "../components/AboutUs/AboutUs";
 import { useAuth } from "../contexts/authContext";
 import { ADMIN } from "../helpers/consts";
 import AdminPage from "../pages/AdminPage";
 import AuthPage from "../pages/AuthPage";
+import CartPage from "../pages/CartPage";
+import EditProductPage from "../pages/EditProductPage";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
-import ProductsPage from "../pages/ProductsPage";
-import EditProductPage from "../pages/EditProductPage";
-import ProductDetails from "../components/Products/ProductDetails";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
+import ProductsPage from "../pages/ProductsPage";
 
 const MainRoutes = () => {
   const { user } = useAuth();
@@ -36,24 +35,21 @@ const MainRoutes = () => {
       element: <ProductsPage />,
       id: 4,
     },
-
-      {
-        link: "/contacts",
-        element: <ContactsUs/>,
-        id: 5,
-      },
-
     {
       link: "/About",
       element: <AboutUs />,
+      id: 5,
+    },
+    {
+      link: "/products/:id",
+      element: <ProductDetailsPage />,
       id: 6,
     },
     {
-      link: '/products/:id',
-      element: <ProductDetailsPage/>,
+      link: "/cart",
+      element: <CartPage />,
       id: 7,
-    }
-
+    },
   ];
 
   const PRIVATE_ROUTES = [
@@ -63,8 +59,8 @@ const MainRoutes = () => {
       id: 1,
     },
     {
-      link: '/edit/:id',
-      element: <EditProductPage/>,
+      link: "/edit/:id",
+      element: <EditProductPage />,
       id: 2,
     },
   ];

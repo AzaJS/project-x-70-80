@@ -10,26 +10,26 @@ const AddProduct = () => {
   const [product, setProduct] = useState({
     name: "",
     description: "",
-    price: '',
+    price: "",
     picture: "",
     type: "",
   });
 
-
+  console.log(product);
 
   return (
     <Box sx={{ width: "60vw", margin: "10vh auto" }}>
       <TextField
-
+        value={product.name}
+        onChange={(e) =>
+          setProduct((prev) => ({ ...prev, name: e.target.value }))
+        }
         fullWidth
         id="outlined-basic"
         label="Name"
         variant="outlined"
         name="name"
-        value={product.name}
-        onChange={(e) =>
-          setProduct((prev) => ({ ...prev, name: e.target.value }))
-        }
+    
       />
       <TextField
        value={product.description}
@@ -39,7 +39,7 @@ const AddProduct = () => {
         label="Description"
         variant="outlined"
         name="description"
-       
+
       />
       <TextField
        value={product.price}
@@ -49,8 +49,7 @@ const AddProduct = () => {
         label="Price"
         variant="outlined"
         name="price"
-      
-        
+    
       />
       <TextField
        value={product.picture}
@@ -61,6 +60,7 @@ const AddProduct = () => {
         variant="outlined"
         name="picture"
        
+        
       />
       <TextField
        value={product.type}
@@ -70,7 +70,7 @@ const AddProduct = () => {
         label="Type"
         variant="outlined"
         name="type"
-       
+     
       />
       <Button
         onClick={() => {

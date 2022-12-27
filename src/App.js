@@ -10,8 +10,8 @@ const App = () => {
     <AuthContextProvider>
       <ProductsContextProvider>
         <CartContextProvider>
-        <Navbar />
-        <MainRoutes />
+          <Navbar />
+          <MainRoutes />
         </CartContextProvider>
       </ProductsContextProvider>
     </AuthContextProvider>
