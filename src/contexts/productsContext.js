@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material";
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ACTIONS, JSON_API_PRODUCTS } from "../helpers/consts";
 
 export const productsContext = createContext();
@@ -28,6 +29,9 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
+  const location = useLocation();
+  const navigate = useNavigate()
+
   const getProducts = async () => {
     try {
       let { data } = await axios(
@@ -42,6 +46,8 @@ const ProductsContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+
 
   const deleteProduct = async (id) => {
     try {
@@ -96,7 +102,19 @@ const ProductsContextProvider = ({ children }) => {
     }
   }
 
-  
+  const fetchByParams = async (query, value)=>{
+    const search = new URLSearchParams(location.search)
+
+
+    if (value =='all'){
+      search.delete(query)
+    }else{
+      search.set(query,value)
+    }
+    const url = `${location.pathname}?${search.toString()}`
+    navigate(url)
+
+  }
 
   let values = {
     products: state.products,
@@ -106,6 +124,7 @@ const ProductsContextProvider = ({ children }) => {
     getProducts,
     getOneProduct,
     deleteProduct,
+    fetchByParams,
   };
   return (
     <productsContext.Provider value={values}>
