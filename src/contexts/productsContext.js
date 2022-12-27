@@ -33,7 +33,6 @@ const ProductsContextProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-
   const getProducts = async () => {
     try {
       let { data } = await axios(
@@ -48,8 +47,6 @@ const ProductsContextProvider = ({ children }) => {
       console.log(error);
     }
   };
-
-
 
   const deleteProduct = async (id) => {
     try {
@@ -69,7 +66,6 @@ const ProductsContextProvider = ({ children }) => {
     }
   };
 
-
   const saveEditedProduct = async (id, newProduct) => {
     try {
       await axios.patch(`${JSON_API_PRODUCTS}/${id}`, newProduct);
@@ -79,44 +75,26 @@ const ProductsContextProvider = ({ children }) => {
     }
   };
 
-  
-
-  
-  const getOneProduct= async(id)=>{
-      try {
-        const {data} = await axios(`${JSON_API_PRODUCTS}/${id}`)
-        let action = {
-          type: ACTIONS.GET_ONE_PRODUCT,
-          payload: data,
-        }
-        dispatch(action)
-
-      } catch (error) {
-        console.log(error);
-      }
-  }
-
-  const editOneProduct = async(id, newobj) =>{
+  const getOneProduct = async (id) => {
     try {
-      const {data} = await axios.patch(`${JSON_API_PRODUCTS}/${id}`, newobj)
+      const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
+      let action = {
+        type: ACTIONS.GET_ONE_PRODUCT,
+        payload: data,
+      };
+      dispatch(action);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  const fetchByParams = async (query, value)=>{
-    const search = new URLSearchParams(location.search)
-
-
-    if (value =='all'){
-      search.delete(query)
-    }else{
-      search.set(query,value)
+  const editOneProduct = async (id, newobj) => {
+    try {
+      const { data } = await axios.patch(`${JSON_API_PRODUCTS}/${id}`, newobj);
+    } catch (error) {
+      console.log(error);
     }
-    const url = `${location.pathname}?${search.toString()}`
-    navigate(url)
-
-  }
+  };
 
   const fetchByParams = async (query, value) => {
     const search = new URLSearchParams(location.search);
@@ -139,6 +117,7 @@ const ProductsContextProvider = ({ children }) => {
     getProducts,
     getOneProduct,
     deleteProduct,
+    saveEditedProduct,
     fetchByParams,
   };
   return (
