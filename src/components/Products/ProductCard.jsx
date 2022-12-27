@@ -12,11 +12,12 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useProducts } from "../../contexts/productsContext";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/cartContext";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function ProductCard({ item }) {
   const navigate = useNavigate();
 
-  const { addProductToCart } = useCart();
+  const { addProductToCart, checkProductInCart } = useCart();
   const { deleteProduct } = useProducts();
   const {
     user: { email },
@@ -64,7 +65,19 @@ export default function ProductCard({ item }) {
           </>
         ) : (
           <IconButton onClick={() => addProductToCart(item)}>
-            <AddShoppingCartIcon />
+            {checkProductInCart(item.id) ? (
+              <>
+                <ShoppingCartIcon
+                  sx={{
+                    color: "brown",
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <AddShoppingCartIcon />
+              </>
+            )}
           </IconButton>
         )}
       </CardActions>

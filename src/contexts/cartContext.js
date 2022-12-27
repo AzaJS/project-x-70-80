@@ -82,9 +82,23 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
+  const checkProductInCart = (id) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (cart) {
+      let newCart = cart.products.filter((elem) => elem.item.id === id);
+      return newCart.length > 0 ? true : false;
+    } else {
+      cart = {
+        product: [],
+        totalPrice: 0,
+      };
+    }
+  };
+
   let values = {
     getCart,
     addProductToCart,
+    checkProductInCart,
     cart: state.cart,
   };
 
