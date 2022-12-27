@@ -14,6 +14,8 @@ const ProductsPage = () => {
       >
         <ProductsList />
         <SideBar/>
+
+
       </Grid>
     </Box>
   );

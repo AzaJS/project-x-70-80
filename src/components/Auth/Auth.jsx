@@ -40,6 +40,7 @@ const theme = createTheme();
 
 export default function Auth() {
   const navigate = useNavigate()
+
   const {
     email,
     password,
@@ -134,6 +135,7 @@ export default function Auth() {
                 onClick={()=>{
                   handleLogin()
                   navigate('/')
+
                 }}
               >
                 Sign In
@@ -147,6 +149,7 @@ export default function Auth() {
                 onClick={()=>{
                   handleSignUp()
                   navigate('/')
+
                 }}
               >
                 Sign UP

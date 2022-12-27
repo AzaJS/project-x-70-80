@@ -1,26 +1,10 @@
 {
   "products": [
     {
-      "name": "Apple iPhone SE 64GB серебристый",
-      "description": "Представляем iPhone SE — самый мощный 4-дюймовый смартфон в истории. Чтобы создать его, разработчики взяли за основу полюбившийся дизайн и полностью поменяли содержание. Установили тот же передовой процессор A9, что и на iPhone 6s, и камеру 12 Мп для съёмки невероятных фотографий и видео 4K. А благодаря Live Photos любой ваш снимок буквально оживёт.",
-      "price": 415,
-      "picture": "https://svetofor.info/images/thumbnails/500/500/detailed/74/apple-iphone-se-silver_2c7c-lk.jpg",
-      "type": "telephone",
-      "id": 1
-    },
-    {
-      "name": "Nokia 230 Dual Sim черный",
-      "description": "Nokia 230 — телефон, работающий на платформе Series 30+, оснащенный LCD Transmissive-дисплеем, отображающим до 65 тыс. цветов, с диагональю 2.8\" и камерой на 2 Mpx. Оснащен относительно слабым аккумулятором на 1200 mAh, который позволяет аппарату работать до 648 часов в режиме ожидания и до 23 в режиме разговора. Для коммуникации может предложить: Web-браузер, стерео Bluetooth и т.д. Для любителей музыки есть аудио выход на 3.5 мм",
-      "price": 56,
-      "picture": "https://svetofor.info/images/thumbnails/500/500/detailed/65/nokia-230-dual-sim-chernyy.jpg",
-      "type": "telephone",
-      "id": 2
-    },
-    {
-      "name": "Смартфон Samsung Galaxy S22 ",
-      "description": "Соотношение сторон телефона: 20:9Размер изображения (дюйм): 1440x3040Количество мегапикселей основной камеры телефона: 108+10+10+12Тип процессора телефона: Exynos 2200Датчики и сенсоры телефона: гироскоп, компас, акселерометр, барометр, Отпечаток пальца (под дисплеем, ультразвуковой), приближение. Дополнительная информация о телефоне: несъемный аккумулятор",
-      "price": 1200,
-      "picture": "https://svetofor.info/images/detailed/291/smartfon-samsung-galaxy-s22-ultra-256-gb-ram-12-gb-dual-sim-purple-1.jpg",
+      "name": "Абдувахид",
+      "description": "Чистый, пробега нет, объем 3:2, жрет мало , может помочь по дому, а также сделать приятное",
+      "price": "1",
+      "picture": "fewf",
       "type": "telephone",
       "id": 3
     },
@@ -55,14 +39,6 @@
       "picture": "https://www.ixbt.com/img/r30/00/02/49/31/apple-watch-series-7-big.jpg",
       "type": "watch",
       "id": 7
-    },
-    {
-      "name": "СМАРТ-ЧАСЫ HUAWEI WATCH GT2 PRO SPORT NIGHT BLACK",
-      "description": "Создатели HUAWEI WATCH GT поставили перед собой задачу выявить максимальный потенциал батареи смарт-часов. Благодаря двойному процессору для носимых устройств Kirin A1 (собственная разработка HUAWEI) и интеллектуальной технологии энергосбережения вы сможете пользоваться смарт-часами круглосуточно до 2 недель без подзарядки",
-      "price": 314,
-      "picture": "https://object.pscloud.io/cms/cms/Photo/img_0_911_461_0_6_320.webp",
-      "type": "watch",
-      "id": 8
     },
     {
       "name": " СМАРТ-ЧАСЫ SAMSUNG GALAXY WATCH 3 STAINLESS 41MM SILVER (SM-R850NZSACIS)",
@@ -107,7 +83,7 @@
     {
       "name": "Ноутбук ASUS X540UB 15.6 ' Intel Core i5 8250U 12 Gb DDR4 240 Gb SSD NVIDIA GeForce MX110 серебристый",
       "description": "Процессор Intel Core i5 сделает любую вашу работу невероятно быстрой. Объем оперативной памяти составляет 12 Gb. Ноутбук ASUS X540UB c разрешением в 1920x1080 отлично подойдет для работы или просмотра любимых фильмов и сериалов. А с видеокартой NVIDIA GeForce MX110 изображение будет всегда четким и красивым. С объемом жесткого диска в 240 Gb вам всегда хватит места, чтобы сохранить важные документы. Вы можете пользоваться Wi-Fi в любом удобном для вас месте.",
-      "price": 802,
+      "price": "802",
       "picture": "https://svetofor.info/images/thumbnails/500/500/detailed/216/noutbuk-asus-x540ub-156-intel-core-i5-8250u-12-gb-ddr4-240-gb-ssd-nvidia-geforce-mx110-serebristyj-1.jpg",
       "type": "laptop",
       "id": 14
