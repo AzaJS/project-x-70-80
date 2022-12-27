@@ -1,7 +1,8 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
 import ProductsList from "../components/Products/ProductsList";
 import SideBar from "../components/Products/SideBar";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const ProductsPage = () => {
   return (
