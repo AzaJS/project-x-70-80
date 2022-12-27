@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useCart } from "../../contexts/cartContext";
+import { Button } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,26 +30,17 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
 export default function Cart() {
-  const { getCart, cart } = useCart();
+  const { getCart, cart, changeProductCount, deleteCartProduct } = useCart();
 
   React.useEffect(() => {
     getCart();
   }, []);
 
-  console.log(cart);
+  const cartCleaner = () => {
+    localStorage.removeItem("cart");
+    getCart();
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -77,17 +69,28 @@ export default function Cart() {
                 {row.item.description}
               </StyledTableCell>
               <StyledTableCell align="right">{row.item.price}</StyledTableCell>
-              <StyledTableCell align="right">{row.item.count}</StyledTableCell>
               <StyledTableCell align="right">
-                {row.item.subPrice}
+                <input
+                  type="number"
+                  min={1}
+                  max={1000}
+                  value={row.count}
+                  onChange={(e) =>
+                    changeProductCount(e.target.value, row.item.id)
+                  }
+                />
               </StyledTableCell>
-              <StyledTableCell align="right"></StyledTableCell>
+              <StyledTableCell align="right">{row.subPrice}</StyledTableCell>
+              <StyledTableCell align="right">
+                <Button onClick={() => deleteCartProduct(row.item.id)}>
+                  DELETE
+                </Button>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
+      <Button onClick={cartCleaner}>BUY NOW FOR {cart?.totalPrice} $</Button>
     </TableContainer>
   );
 }
-
-// ! перерыв на 15 мин до 11:37
