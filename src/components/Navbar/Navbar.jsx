@@ -77,8 +77,6 @@ export default function Navbar() {
     getCart();
   }, []);
 
-  console.log(cart);
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -249,8 +247,9 @@ export default function Navbar() {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={() => navigate("/cart")}
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={cart?.products.length} color="error">
                 <ShoppingBagIcon />
               </Badge>
             </IconButton>
