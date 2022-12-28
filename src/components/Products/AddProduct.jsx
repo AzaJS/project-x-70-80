@@ -66,7 +66,7 @@ const AddProduct = () => {
       <Button
         onClick={() => {
           addProduct(product);
-          // navigate("/products");
+          navigate("/products");
         }}
         variant="outlined"
         fullWidth

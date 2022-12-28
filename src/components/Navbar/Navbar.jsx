@@ -18,6 +18,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { useAuth } from "../../contexts/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import { ADMIN } from "../../helpers/consts";
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import { useCart } from "../../contexts/cardContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -69,7 +71,12 @@ const pages = [
 export default function Navbar() {
   const navigate = useNavigate();
   const { user, handleLogout } = useAuth();
-  console.log(user);
+  const {getCart, cart} = useCart()
+
+  React.useEffect(()=>{
+    getCart();
+  },[])
+  
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -201,7 +208,7 @@ export default function Navbar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            70-80
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -212,8 +219,18 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          {user.email == ADMIN ? 
-            <Link style={{color: "white", margin: "0 10px", textDecoration: ""}} to="/admin" >Admin</Link> : null}
+          {user.email == ADMIN ? (
+            <Link
+              style={{
+                color: "white",
+                margin: "0 10px",
+                textDecoration: "underline",
+              }}
+              to="/admin"
+            >
+              Admin
+            </Link>
+          ) : null}
           <Box sx={{ display: "flex", gap: "6px" }}>
             {pages.map((item) => (
               <Link to={item.link}>
@@ -223,26 +240,19 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
-
+         
           {user ? <Box>{user.email}</Box> : <Box>Не авторизован</Box>}
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
+           
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={()=>navigate("/cart")}
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+              <Badge badgeContent={cart?.products.length} color="error">
+                <ShoppingBagIcon/>
               </Badge>
             </IconButton>
 

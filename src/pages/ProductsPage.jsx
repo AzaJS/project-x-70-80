@@ -5,7 +5,7 @@ import SideBar from "../components/Products/SideBar";
 
 const ProductsPage = () => {
   return (
-    <Box p={5} >
+    <Box p={5}>
       ProductsPage
       <Grid
         // sx={{ backgroundColor: "black", height: "100vh" }}
@@ -13,7 +13,7 @@ const ProductsPage = () => {
         spacing={3}
       >
         <ProductsList />
-        <SideBar/>
+        <SideBar />
       </Grid>
     </Box>
   );

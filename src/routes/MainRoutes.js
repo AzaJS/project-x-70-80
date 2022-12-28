@@ -1,11 +1,15 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import AboutUs from "../components/AboutUs/AboutUs";
 import { useAuth } from "../contexts/authContext";
 import { ADMIN } from "../helpers/consts";
 import AdminPage from "../pages/AdminPage";
 import AuthPage from "../pages/AuthPage";
+import CartPage from "../pages/CartPage";
+import EditProductPage from "../pages/EditProductPage";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
+import ProductDetailsPage from "../pages/ProductDetailsPage";
 import ProductsPage from "../pages/ProductsPage";
 
 const MainRoutes = () => {
@@ -31,6 +35,21 @@ const MainRoutes = () => {
       element: <ProductsPage />,
       id: 4,
     },
+    // {
+    //   link: "/About",
+    //   element: <AboutUs />,
+    //   id: 5,
+    // },
+    {
+      link: "/products/:id",
+      element: <ProductDetailsPage/>,
+      id: 6,
+    },
+    {
+      link: "/cart",
+      element: <CartPage/>,
+      id: 7,
+    }
   ];
 
   const PRIVATE_ROUTES = [
@@ -39,6 +58,11 @@ const MainRoutes = () => {
       element: <AdminPage />,
       id: 1,
     },
+    {
+      link: "/edit/:id",
+      element: <EditProductPage/>,
+      id: 2,
+    }
   ];
 
   return (
