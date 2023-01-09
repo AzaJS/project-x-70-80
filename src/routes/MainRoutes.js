@@ -1,6 +1,5 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import AboutUs from "../components/AboutUs/AboutUs";
 import { useAuth } from "../contexts/authContext";
 import { ADMIN } from "../helpers/consts";
 import AdminPage from "../pages/AdminPage";
@@ -37,26 +36,20 @@ const MainRoutes = () => {
       id: 4,
     },
     {
-      link: "/About",
-      element: <AboutUs />,
-      id: 5,
-    },
-    {
       link: "/products/:id",
       element: <ProductDetailsPage />,
-      id: 6,
+      id: 5,
     },
     {
       link: "/cart",
       element: <CartPage />,
-      id: 7,
+      id: 6,
     },
     {
       link: '/contacts',
       element: <ContactsPage />,
-      id: 8
-    }
-  
+      id: 7,
+    },
   ];
 
   const PRIVATE_ROUTES = [

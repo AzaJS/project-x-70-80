@@ -10,5 +10,5 @@ export const CART = {
 
 export const JSON_API_PRODUCTS = "http://localhost:8000/products";
 
-// ваша админка
-export const ADMIN = "azretmakers@mail.ru";
+
+export const ADMIN = "karypov.ertur19@gmail.com";

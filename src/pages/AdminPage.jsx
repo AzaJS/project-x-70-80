@@ -4,7 +4,7 @@ import AddProduct from "../components/Products/AddProduct";
 const AdminPage = () => {
   return (
     <div>
-      Admin Page
+      <h2 style={{margin: "0px 0px 0px 550px "}}>HELLO!</h2>
       <AddProduct />
     </div>
   );

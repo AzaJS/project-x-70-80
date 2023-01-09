@@ -9,8 +9,6 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -20,6 +18,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { ADMIN } from "../../helpers/consts";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { useCart } from "../../contexts/cartContext";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import "./Navbar.css";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -37,15 +37,6 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
@@ -62,9 +53,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const pages = [
-  { name: "ABOUT US", link: "/about", id: 1 },
-  { name: "CONTACT US", link: "/contacts", id: 2 },
-  { name: "PRODUCTS", link: "/products", id: 3 },
+  { name: "SHOP", link: "/products", id: 1 },
+  { name: "ABOUT US", link: "/about", id: 2 },
+  { name: "CONTACT US", link: "/contacts", id: 3 },
 ];
 
 export default function Navbar() {
@@ -154,10 +145,10 @@ export default function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem className="vv">
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <MailIcon />
+            <MailIcon className="vv" />
           </Badge>
         </IconButton>
         <p>Messages</p>
@@ -182,7 +173,7 @@ export default function Navbar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <AccountCircle  />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -191,58 +182,14 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            70-80 shop
+      <AppBar position="static" className="navbar">
+        <Toolbar className="tool">
+          <div className="logo_nav">
+          <Typography className='img_navbar'>
+            <img src={require("./photo.png")} alt="" />
           </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          {user.email == ADMIN ? (
-            <Link
-              style={{
-                color: "white",
-                margin: "0 10px",
-                textDecoration: "underline",
-              }}
-              to="/admin"
-            >
-              Admin
-            </Link>
-          ) : null}
-          <Box sx={{ display: "flex", gap: "6px" }}>
-            {pages.map((item) => (
-              <Link to={item.link}>
-                <Typography sx={{ color: "white" }}>{item.name}</Typography>
-              </Link>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 1 }} />
-          
-          {user ? <Box>{user.email}</Box> : <Box>Не авторизован</Box>}
-
+          </div>
+          <div className="btn_nav">
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
@@ -250,8 +197,18 @@ export default function Navbar() {
               color="inherit"
               onClick={() => navigate("/cart")}
             >
-              <Badge badgeContent={cart?.products.length} color="error">
-                <ShoppingBagIcon />
+              <Badge  color="error">
+              <FavoriteBorderIcon sx={{color: "#503223"}} />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+              onClick={() => navigate("/cart")}
+            >
+              <Badge className="err" badgeContent={cart?.products.length}  color="error">
+                <ShoppingBagIcon sx={{color: "#503223"}}/>
               </Badge>
             </IconButton>
 
@@ -264,7 +221,7 @@ export default function Navbar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <AccountCircle sx={{color: "#503223"}} />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -279,10 +236,40 @@ export default function Navbar() {
               <MoreIcon />
             </IconButton>
           </Box>
+          {user.email == ADMIN ? (
+            <Link
+              style={{
+                color: "#503223",
+                margin: "0 10px",
+                textDecoration: "underline",
+              }}
+              to="/admin"
+            >
+              Admin
+            </Link>
+          ) : null}
+          <Box className="vv" sx={{ flexGrow: 1 }}/>
+          
+          {user ? <Box className="vvv">{user.email}</Box> : <Box sx={{color: "#503223"}}>not authorized</Box>}
+
+        </div>
         </Toolbar>
+        <br />
+        <Box className="vv"  sx={{ display: "flex", gap: "5px", margin: "6px 0px 0px 0px"  }}>
+            {pages.map((item) => (
+              <Link to={item.link} className="btn">
+                <Typography>{item.name}</Typography>
+              </Link>
+            ))}
+            
+          </Box>
+          
       </AppBar>
+      
       {renderMobileMenu}
       {renderMenu}
+          
+         
     </Box>
   );
 }

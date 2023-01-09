@@ -6,10 +6,13 @@ import React from "react";
 const ProductsPage = () => {
   return (
     <Box p={5}>
-      ProductsPage
+      <div className="shop" style={{display: "flex"}}>
+        <div><h3>SHOP</h3></div>
+        <div><span>Shop your favourite Belgian chocolates! Discover our wide range of chocolate gifts and refine your search by type, <br /> price range or quantity to find your ideal gift.</span></div>
+      </div>
       <Grid container spacing={3}>
-        <ProductsList />
         <SideBar />
+        <ProductsList />
       </Grid>
     </Box>
   );
